@@ -30,16 +30,14 @@ TODO: (discuss better place to store initial files to build kos kernel image)
 $ cp $SYZKALLER/executor/kos/* .
 ```
 
-### 3. Build the einit entity
+### 3. Build the Einit entity
 In  KasperskyOS processe are called entities.
-
 Einit is one of the most important entities in KasperskyOS.
 It's the first entity started by the operating system kernel when the
 image is loaded and it starts all other entities included in the
 solution, which means that it serves as the initializing entity.
 
 Generate the code of the Einit entity in C
-
 ```bash
 $ einit -I $KOSPATH/sysroot-arm-kos/include \
 -I $KOSPATH/toolchain/arm-kos/include \
@@ -49,9 +47,7 @@ $ einit -I $KOSPATH/sysroot-arm-kos/include \
 
 A file named `einit.c` will be generated.
 
-
 Compile the `einit.c` file into the executable file of the Einit entity
-
 ```bash
 $ arm-kos-gcc einit.c -o Einit
 ```
@@ -63,8 +59,7 @@ TODO: when executor for kos is implemented
 
 ### 5. Build Kaspersky OS qemu image with executor binary
 
-Run the following command to build Kaspersky OS qemu image:
-
+The following command builds Kaspersky OS qemu image with Einit and Executor entities:
 ```bash
 $ makeimg \
  --target=arm-kos --sys-root=$KOSPATH/sysroot-arm-kos \
@@ -75,7 +70,6 @@ $ makeimg \
  --img-dst=kos-image \
  /path/to/executor
 ```
-
 
 ## Build syzkaller for Kaspersky OS
 
