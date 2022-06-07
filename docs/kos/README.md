@@ -35,7 +35,7 @@ In  KasperskyOS processe are called entities.
 
 Einit is one of the most important entities in KasperskyOS.
 It's the first entity started by the operating system kernel when the
-image is loaded and it starts all other entities included in the 
+image is loaded and it starts all other entities included in the
 solution, which means that it serves as the initializing entity.
 
 Generate the code of the Einit entity in C
