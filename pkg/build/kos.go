@@ -36,7 +36,7 @@ func (ka kos) build(params Params) (ImageDetails, error) {
 	if _, err := runSandboxed(time.Hour, params.KernelDir,
 		"makeimg --target="+arch, "--sys-root="+SYSROOT,
 		"--with-toolchain="+TOOLCHAIN,
-		"--ldscript="+LINKERSCRIPT+"../libexec/arm-kos/kos-qemu.l",
+		"--ldscript="+LINKERSCRIPT+"../libexec/arm-kos/kos-qemu.ld",
 		"--img-src="+IMGSRC+"../libexec/arm-kos/kos-qemu",
 		"--img-dst="+kernelKOS,
 	); err != nil {
